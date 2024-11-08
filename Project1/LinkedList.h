@@ -10,5 +10,6 @@ typedef struct  Node
 }Node;
 
 Node* createNode(int num);
+void addNode(Node** head, int num);
 
 #endif // !LINKEDLIST_H
