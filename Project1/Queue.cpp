@@ -1,6 +1,11 @@
 #include "queue.h"
 #include <iostream>
 
+/*
+* function that initials a queue
+* @param q pointer to the start of the queue
+* @param size the size of the queue
+**/
 void initQueue(Queue* q, unsigned int size)
 {
 	q->array = new int[size];
@@ -14,10 +19,19 @@ void initQueue(Queue* q, unsigned int size)
 	q->head = 0;
 	q->tail = 0;
 }
+/*
+* function that cleans the entire queue
+* @param q pointer to the start of the queue
+**/
 void cleanQueue(Queue* q)
 {
 	delete[] q->array;
 }
+/*
+* function that adds an object to the queue
+* @param q pointer to the start of the queue
+* @param newValue the new value that will be added to the queue
+**/
 void enqueue(Queue* q, unsigned int newValue)
 {
 	if (isFull(q))
@@ -33,6 +47,11 @@ void enqueue(Queue* q, unsigned int newValue)
 	}
 	q->numOfObjects++;
 }
+/*
+* function that removes an object from the queue
+* @param q pointer to the start of the queue
+* @return the value of the removed object (-1 if the queue is empty)
+**/
 int dequeue(Queue* q)
 {
 	if (isEmpty(q))
@@ -49,10 +68,20 @@ int dequeue(Queue* q)
 	}
 	return num;
 }
+/*
+* function to check if the queue is empty
+* @param q pointer to the start of the queue
+* @return true or false
+**/
 bool isEmpty(Queue* s)
 {
 	return (s->numOfObjects == 0);
 }
+/*
+* function that checks if the queue is full
+* @param q pointer to the start of the queue
+* @return true or false
+**/
 bool isFull(Queue* s)
 {
 	return (s->numOfObjects == s->sizeOfArray);

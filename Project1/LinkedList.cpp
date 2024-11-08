@@ -1,5 +1,10 @@
 #include "LinkedList.h"
 
+/**
+* function that creates a node object
+* @param  num the number that will be stored in the node
+* @return pointer to node object
+*/
 Node* createNode(int num)
 {
 	Node* node = new Node;
@@ -11,6 +16,11 @@ Node* createNode(int num)
 	node->next = NULL;
 	return node;
 }
+/*
+* function that adds a node to a linked list
+* @param head pointer to the head of the linked list (double pointer)
+* @param num the num that will be stored in the new node
+**/
 void addNode(Node** head, int num)
 {
 	Node* node = createNode(num);
@@ -27,6 +37,10 @@ void addNode(Node** head, int num)
 	node->next = *head;
 	*head = node;
 }
+/*
+* function that removes a node from the linked list
+* @param head pointer to the head of the linked list (double pointer)
+**/
 void removeNode(Node** head)
 {
 	Node* nodeToDelete = NULL;
@@ -39,6 +53,10 @@ void removeNode(Node** head)
 	*head = (*head)->next;
 	delete nodeToDelete;
 }
+/*
+* function that deletes the entire linked list
+* @param head pointer to the head of the linked list (double pointer)
+**/
 void deleteList(Node** head)
 {
 	Node* current = NULL;

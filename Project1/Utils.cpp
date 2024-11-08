@@ -1,5 +1,10 @@
 #include "Utils.h"
 
+/*
+* function that reverse an array 
+* @param nums the array that will be reversed
+* @param size the size of the array
+**/
 void reverse(int* nums, unsigned int size)
 {
 	Stack* stack = new Stack;
@@ -20,6 +25,10 @@ void reverse(int* nums, unsigned int size)
 	cleanStack(stack);
 	delete stack;
 }
+/*
+* function that reverses a 10 digit array that is fiiled with user input
+* @return the reversed array
+**/
 int* reverse10()
 {
 	int* array = new int[ARRAY_10_SIZE];
