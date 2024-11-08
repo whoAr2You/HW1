@@ -5,8 +5,10 @@
 /* a queue contains positive integer values. */
 typedef struct Queue
 {
+	int head;
 	int tail;
 	unsigned int sizeOfArray;
+	unsigned int numOfObjects;
 	int* array;
 } Queue;
 

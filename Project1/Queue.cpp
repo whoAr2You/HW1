@@ -10,6 +10,8 @@ void initQueue(Queue* q, unsigned int size)
 		return;
 	}
 	q->sizeOfArray = size;
+	q->numOfObjects = 0;
+	q->head = 0;
 	q->tail = 0;
 }
 void cleanQueue(Queue* q)
@@ -25,6 +27,11 @@ void enqueue(Queue* q, unsigned int newValue)
 	}
 	q->array[q->tail] = newValue;
 	q->tail++;
+	if (q->tail == q->sizeOfArray)
+	{
+		q->tail = 0;
+	}
+	q->numOfObjects++;
 }
 int dequeue(Queue* q)
 {
@@ -33,19 +40,20 @@ int dequeue(Queue* q)
 		std::cout << "The queue is empty\n";
 		return -1;
 	}
-	int num = q->array[0];
-	q->tail--;
-	for (int i = 0; i < q->tail; i++)
+	int num = q->array[q->head];
+	q->head++;
+	q->numOfObjects--;
+	if (q->head == q->sizeOfArray)
 	{
-		q->array[i] = q->array[i + 1];
+		q->head = 0;
 	}
 	return num;
 }
 bool isEmpty(Queue* s)
 {
-	return (s->tail == 0);
+	return (s->numOfObjects == 0);
 }
 bool isFull(Queue* s)
 {
-	return (s->tail == s->sizeOfArray);
+	return (s->numOfObjects == s->sizeOfArray);
 }
