@@ -11,5 +11,7 @@ typedef struct  Node
 
 Node* createNode(int num);
 void addNode(Node** head, int num);
+void removeNode(Node** head);
+void deleteList(Node** head);
 
 #endif // !LINKEDLIST_H

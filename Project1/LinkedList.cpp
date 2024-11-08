@@ -13,7 +13,6 @@ Node* createNode(int num)
 }
 void addNode(Node** head, int num)
 {
-	Node* current = NULL;
 	Node* node = createNode(num);
 	if (node ==  NULL)
 	{
@@ -25,10 +24,32 @@ void addNode(Node** head, int num)
 		*head = node;
 		return;
 	}
+	node->next = *head;
+	*head = node;
+}
+void removeNode(Node** head)
+{
+	Node* nodeToDelete = NULL;
+	if (*head == NULL)
+	{
+		std::cout << "The linked list is empty\n";
+		return;
+	}
+	nodeToDelete = *head;
+	*head = (*head)->next;
+	delete nodeToDelete;
+}
+void deleteList(Node** head)
+{
+	Node* current = NULL;
+	Node* toDelete = NULL;
 	current = *head;
 	while (current->next != NULL)
 	{
+		toDelete = current;
 		current = current->next;
+		delete toDelete;
 	}
-	current->next = node;
+	delete current;
+	*head = NULL;
 }
