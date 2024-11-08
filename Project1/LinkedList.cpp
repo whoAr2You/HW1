@@ -44,7 +44,7 @@ void deleteList(Node** head)
 	Node* current = NULL;
 	Node* toDelete = NULL;
 	current = *head;
-	while (current->next != NULL)
+	while (current != NULL)
 	{
 		toDelete = current;
 		current = current->next;
